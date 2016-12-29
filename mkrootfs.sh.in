@@ -47,9 +47,8 @@ Usage: $PROGNAME [options] <platform>
 
 Supported platforms: i686, i686-musl, x86_64, x86_64-musl,
                      dockstar, bananapi, beaglebone, cubieboard2, cubietruck,
-                     odroid-c2, odroid-u2, rpi, rpi2 (armv7), rpi3 (aarch64),
-                     usbarmory, ci20
-
+                     odroid-c1, odroid-c2, odroid-u2, rpi, rpi2 (armv7),
+                     rpi3 (aarch64), usbarmory, ci20
 
 Options
     -b <syspkg> Set an alternative base-system package (defaults to base-system)
@@ -176,6 +175,7 @@ case "$PLATFORM" in
     usbarmory*) SUBPLATFORM=${PLATFORM%-*}; QEMU_BIN=qemu-arm-static;;
     ci20*) SUBPLATFORM=${PLATFORM%-*}; QEMU_BIN=qemu-mipsel-static;;
     odroid-c2*) SUBPLATFORM=${PLATFORM%-musl}; QEMU_BIN=qemu-aarch64-static;;
+    odroid-c1*) SUBPLATFORM=${PLATFORM%-*}; QEMU_BIN=qemu-arm-static;;
     i686*) QEMU_BIN=qemu-i386-static;;
     x86_64*) QEMU_BIN=qemu-x86_64-static;;
     *) die "$PROGNAME: invalid platform!";;
